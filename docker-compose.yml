@@ -12,3 +12,24 @@ services:
       - /opt/app/.next
     ports:
       - '3000:3000'
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password --innodb-buffer-pool-size=2048M
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=nextjs
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "33060:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    security_opt:
+      - seccomp:unconfined      
+volumes:
+  mysql-data:
+    driver: local          
+      
