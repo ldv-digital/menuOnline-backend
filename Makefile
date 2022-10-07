@@ -10,6 +10,9 @@ stop:
 down:
 	docker-compose -f docker-compose.yml down -v	
 
+bash:
+	 docker exec -it nextjs sh
+
 # Docker commands
 remove-all-images-docker:
 	docker network prune
