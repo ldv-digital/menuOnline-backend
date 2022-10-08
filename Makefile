@@ -13,10 +13,15 @@ down:
 build:
 	docker-compose -f docker-compose.yml down && docker-compose -f docker-compose.yml up -d --build --remove-orphans
 
+docker-inspect:
+	docker network inspect bridge
 
 bash:
-	 docker exec -it nextjs sh
+	docker exec -it nextjs sh
 
+prisma-migrate:
+	docker exec -it nextjs sh -c 'yarn  prisma migrate dev --name init'
+	 
 # Docker commands
 remove-all-images-docker:
 	docker network prune
