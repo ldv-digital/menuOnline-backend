@@ -1,7 +1,7 @@
 import { gql, ApolloServer } from "apollo-server-micro";
-// import { PrismaClient } from '@prisma/client'
-// const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client'
 
+const prisma = new PrismaClient();
 
 
 
@@ -18,26 +18,29 @@ const typeDefs = gql`
 `;
 
 
-// async function teste() {
-//     const users = await prisma.user.findMany({
-//         // Returns all user fields
-//         include: {
-//             posts: {
-//                 select: {
-//                     title: true,
-//                 },
-//             },
-//         },
-//     })
+async function teste() {
 
-//     return users.name??'teste'
-// }
+
+    const users = await prisma.user.findMany({
+        // Returns all user fields
+        include: {
+            posts: {
+                select: {
+                    title: true,
+                },
+            },
+        },
+    })
+
+
+    return users[0].name??'teste'
+}
 
 
 
 const testeGraphql = {
     id: "getLuan 123",
-    teste: "teste()"
+    teste: teste()
 }
 
 const resolvers = {
