@@ -8,6 +8,7 @@ const typeDefs = gql`
 
   type login {
     email: String
+    name: String
     pass: String
     token: String
   }

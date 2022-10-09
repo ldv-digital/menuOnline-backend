@@ -1,10 +1,31 @@
-function getLogin(parent, args, context, info) {
+import { PrismaClient } from '@prisma/client'
+import md5 from 'md5'
 
-    console.log(args);
-    const getLogin = {
-        pass: "Teste 123",
-        email: "Teste 123",
-    };
+const prisma = new PrismaClient();
+
+async function getLogin(parent, args, context, info) {
+
+    let getLogin = {
+        "token": null,
+        "email": null,
+        "name": null
+    }
+
+    const { email, pass } = args;
+
+    const [users] = await prisma.user.findMany({
+        where: { email }
+    })
+
+    const token = (users.pass == md5(pass) ? md5('token do banco') : null);
+
+    if (token) {
+        getLogin = {
+            ...users,
+            token
+        }
+    }
+
 
     return getLogin;
 }
