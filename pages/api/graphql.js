@@ -1,6 +1,7 @@
 import { ApolloServer } from "apollo-server-micro";
 import getMenu from './resolvers/getMenu'
 import getLogin from './resolvers/getLogin'
+import createUser from './resolvers/createUser'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
 
@@ -18,6 +19,9 @@ const resolvers = {
         getLogin: (parent, args, context, info) => {
             return getLogin(parent, args, context, info);
         },
+        createUser: (parent, args, context, info) => {
+            return createUser(parent, args, context, info);
+        },
     },
 };
 
@@ -29,23 +33,6 @@ const apolloServer = new ApolloServer({
 const startServer = apolloServer.start();
 
 export default async function handler(req, res) {
-
-
-    // const user = await prisma.user.create({
-    //     data: {
-    //       name: 'Bob',
-    //       email: 'bob@prisma.io',
-    //       posts: {
-    //         create: {
-    //           title: 'Hello World',
-    //         },
-    //       },
-    //     },
-    //   })
-    //   console.log(user)
-
-
-
     await startServer;
     await apolloServer.createHandler({
         path: "/api/graphql",

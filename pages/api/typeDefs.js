@@ -12,6 +12,12 @@ const typeDefs = gql`
     token: String
   }
 
+  type createUser {
+    email: String
+    pass: String
+    name: String
+  }
+
   type Query {
     getUser(id: ID): User
     getMenu: User
@@ -19,6 +25,7 @@ const typeDefs = gql`
 
   type Mutation {
     getLogin(email: String, pass: String): login
+    createUser(email: String, pass: String, name: String): createUser
   }
 `;
 export default typeDefs;
