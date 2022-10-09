@@ -1,58 +1,16 @@
-import { gql, ApolloServer } from "apollo-server-micro";
-import { PrismaClient } from '@prisma/client'
+import { ApolloServer } from "apollo-server-micro";
+import getMenu from './resolvers/getMenu'
+import getUser from './resolvers/getUser'
+import typeDefs from './typeDefs'
 
-const prisma = new PrismaClient();
-
-
-
-const typeDefs = gql`
-  type User {
-    id: ID
-    teste: String
-  }
-
-  type Query {
-    getUser: User
-    getLuan: User
-  }
-`;
-
-
-async function teste() {
-
-
-    const users = await prisma.user.findMany({
-        // Returns all user fields
-        include: {
-            posts: {
-                select: {
-                    title: true,
-                },
-            },
-        },
-    })
-
-
-    return users[0].name??'teste'
-}
-
-
-
-const testeGraphql = {
-    id: "getLuan 123",
-    teste: teste()
-}
 
 const resolvers = {
     Query: {
         getUser: () => {
-            return {
-                id: "Teste 123",
-                teste: "Teste 123",
-            };
+            return getUser;
         },
-        getLuan: () => {
-            return testeGraphql;
+        getMenu: () => {
+            return getMenu;
         },
     },
 };
