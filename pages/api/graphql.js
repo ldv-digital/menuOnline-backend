@@ -1,16 +1,22 @@
 import { ApolloServer } from "apollo-server-micro";
 import getMenu from './resolvers/getMenu'
+import getLogin from './resolvers/getLogin'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
 
 
 const resolvers = {
     Query: {
-        getUser: () => {
-            return getUser;
+        getUser: (parent, args, context, info) => {
+            return getUser(parent, args, context, info);
         },
         getMenu: () => {
             return getMenu;
+        },
+    },
+    Mutation: {
+        getLogin: (parent, args, context, info) => {
+            return getLogin(parent, args, context, info);
         },
     },
 };

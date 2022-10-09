@@ -3,12 +3,22 @@ import { gql } from "apollo-server-micro";
 const typeDefs = gql`
   type User {
     id: ID
-    teste: String
+    email: String
+  }
+
+  type login {
+    email: String
+    pass: String
+    token: String
   }
 
   type Query {
-    getUser: User
+    getUser(id: ID): User
     getMenu: User
+  }
+
+  type Mutation {
+    getLogin(email: String, pass: String): login
   }
 `;
 export default typeDefs;

@@ -3,29 +3,14 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 
-async function teste() {
+async function getMenu() {
 
-
-    const users = await prisma.user.findMany({
-        // Returns all user fields
-        include: {
-            posts: {
-                select: {
-                    title: true,
-                },
-            },
-        },
+    const [users] = await prisma.user.findMany({
+        where: { name: 'bob' }
     })
 
-
-    return users[0].name??'teste'
+    return users;
 }
 
 
-
-const getMenu = {
-    id: "getLuan 123",
-    teste: teste()
-}
-
-export default getMenu;
+export default getMenu();
