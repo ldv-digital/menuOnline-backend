@@ -1,4 +1,5 @@
 import { ApolloServer } from "apollo-server-micro";
+import isValidToken from './isValidToken'
 import getMenu from './resolvers/getMenu'
 import getLogin from './resolvers/getLogin'
 import createUser from './resolvers/createUser'
@@ -32,6 +33,11 @@ const resolvers = {
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
+    context: ({ req }) => {
+        const token = req.headers.authorization || '';
+        const isValid = isValidToken(token);
+        if (!isValid) throw new AuthenticationError('you must be logged in');
+    }
 });
 
 const startServer = apolloServer.start();

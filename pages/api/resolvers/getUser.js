@@ -8,7 +8,7 @@ async function getUser(parent, args, context, info) {
     const [users] = await prisma.user.findMany({
         where: { id }
     })
-    console.log(users);
+
     return users;
 }
 export default getUser;
