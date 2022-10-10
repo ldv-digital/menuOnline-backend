@@ -26,7 +26,7 @@ CREATE TABLE `Menu` (
 CREATE TABLE `AccessToken` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `token` VARCHAR(191) NULL,
-    `isActive` BOOLEAN NOT NULL DEFAULT true,
+    `idUser` INTEGER NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)

@@ -30,6 +30,6 @@ model Menu {
 model AccessToken {
   id    Int     @id @default(autoincrement())
   token  String?
-  isActive  Boolean    @default(true)
+  idUser  Int?
   createdAt  DateTime   @default(now())
 }

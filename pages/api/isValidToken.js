@@ -10,9 +10,8 @@ async function isValidToken(token) {
         where: { token }
     })
 
+// TODO: verificar data db menos data atual 
 
-    console.log(isToken.createdAt);
-
-    return isToken;
+    return true;
 }
 export default isValidToken;

@@ -2,7 +2,6 @@ import { PrismaClient } from '@prisma/client'
 import md5 from 'md5'
 
 const prisma = new PrismaClient();
-const dateNow = Date.now();
 
 async function getLogin(parent, args, context, info) {
 
@@ -18,13 +17,16 @@ async function getLogin(parent, args, context, info) {
         where: { email }
     })
 
+    const dateNow = Date.now();
+
     const token = (users?.pass == md5(pass) ? md5(dateNow) : null);
 
     if (token) {
-
+        const idUser = users.id;
         await prisma.AccessToken.create({
             data: {
-                token
+                token,
+                idUser
             },
         })
 
