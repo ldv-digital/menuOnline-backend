@@ -16,3 +16,20 @@ model User {
   pass  String?
   name  String?
 }
+
+model Menu {
+  id    Int     @id @default(autoincrement())
+  userId  String?
+  urlLogo  String?
+  urlMenu  String?
+  nameStore  String?
+  isActive  Boolean    @default(true)
+  createdAt  DateTime   @default(now())
+}
+
+model AccessToken {
+  id    Int     @id @default(autoincrement())
+  token  String?
+  isActive  Boolean    @default(true)
+  createdAt  DateTime   @default(now())
+}

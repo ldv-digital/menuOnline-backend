@@ -2,6 +2,7 @@ import { ApolloServer } from "apollo-server-micro";
 import getMenu from './resolvers/getMenu'
 import getLogin from './resolvers/getLogin'
 import createUser from './resolvers/createUser'
+import createMenu from './resolvers/createMenu'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
 
@@ -21,6 +22,9 @@ const resolvers = {
         },
         createUser: (parent, args, context, info) => {
             return createUser(parent, args, context, info);
+        },
+        createMenu: (parent, args, context, info) => {
+            return createMenu(parent, args, context, info);
         },
     },
 };

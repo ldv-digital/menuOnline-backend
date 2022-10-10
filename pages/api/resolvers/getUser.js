@@ -1,11 +1,14 @@
-function getUser(parent, args, context, info) {
+import { PrismaClient } from '@prisma/client'
 
-    console.log(args);
-    const getUser = {
-        id: "Teste 123",
-        teste: "Teste 123",
-    };
+const prisma = new PrismaClient();
 
-    return getUser;
+async function getUser(parent, args, context, info) {
+    const id = parseInt(args.id);
+
+    const [users] = await prisma.user.findMany({
+        where: { id }
+    })
+    console.log(users);
+    return users;
 }
 export default getUser;
