@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "6429035e-713e-4dcd-aae8-65df6868ea3e",
+		"name": "menuOnline",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12958993"
+	},
+	"item": [
+		{
+			"name": "get menu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123123123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getMenu {\n        id\n        email\n    }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation LoginUser {\n   getLogin(email: \"jamacio@hotmail.com\", pass: \"teste@123456\") {\n    token\n    email\n    name\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation createUser {\n   createUser(email: \"jamacio@hotmail.com\", pass: \"teste@123456\", name: \"jamacio\") {\n    email\n    pass\n    name\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Menu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation createMenu {\n   createMenu(userId: \"123123\", urlLogo: \"tdsadsa\", urlMenu: \"sadsada\", nameStore: \"aaaaaa\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123123123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\nquery {\n  getUser(id: 1) {\n        email\n        name\n    }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
