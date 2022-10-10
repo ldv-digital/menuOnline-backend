@@ -33,9 +33,9 @@ const resolvers = {
 const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
-    context: ({ req }) => {
+    context: async ({ req }) => {
         const token = req.headers.authorization || '';
-        const isValid = isValidToken(token);
+        const isValid = await isValidToken(token);
         if (!isValid) throw new AuthenticationError('you must be logged in');
     }
 });
