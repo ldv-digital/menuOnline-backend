@@ -23,13 +23,8 @@ async function getLogin(parent, args, context, info) {
 
     if (token) {
         const idUser = users.id;
-        await prisma.AccessToken.create({
-            data: {
-                token,
-                idUser
-            },
-        })
-
+        await prisma.AccessToken.deleteMany({ where: { idUser } })
+        await prisma.AccessToken.create({ data: { token, idUser } })
         getLogin = {
             ...users,
             token
