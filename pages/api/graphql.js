@@ -1,12 +1,11 @@
 import { ApolloServer } from "apollo-server-micro";
-import isValidToken from './isValidToken'
+import getIdToken from './getIdToken'
 import getMenu from './resolvers/getMenu'
 import getLogin from './resolvers/getLogin'
 import createUser from './resolvers/createUser'
 import createMenu from './resolvers/createMenu'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
-
 
 const resolvers = {
     Query: {
@@ -35,9 +34,10 @@ const apolloServer = new ApolloServer({
     resolvers,
     context: async ({ req }) => {
         const token = req.headers.authorization || '';
-        const isValid = await isValidToken(token);
-        if (!isValid) throw new AuthenticationError('you must be logged in');
-    }
+        const idUserToken = await getIdToken(token);
+
+        return { idUserToken };
+    },
 });
 
 const startServer = apolloServer.start();

@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getUser(id: ID): User
+    getUser: User
     getMenu(id: ID): Menu
   }
 
