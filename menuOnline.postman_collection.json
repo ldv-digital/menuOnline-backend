@@ -14,7 +14,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "123123123",
+							"value": "b56af00d30505c7144b5f500e5ddf671",
 							"type": "string"
 						}
 					]
@@ -24,7 +24,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\n    getMenu {\n        id\n        email\n    }\n}\n",
+						"query": "\nquery {\n  getMenu(id: 3) {\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
 						"variables": ""
 					}
 				},
@@ -105,7 +105,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation createMenu {\n   createMenu(userId: \"123123\", urlLogo: \"tdsadsa\", urlMenu: \"sadsada\", nameStore: \"aaaaaa\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"query": "mutation createMenu {\n   createMenu(userId: \"1\", urlLogo: \"eqweqweqwe\", urlMenu: \"dddeewqwe\", nameStore: \"qweqweqeqwewqeqw\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
 						"variables": ""
 					}
 				},
@@ -132,7 +132,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "123123123",
+							"value": "5ecbb94baa287ae22df3372377263e7d",
 							"type": "string"
 						}
 					]
@@ -142,7 +142,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "\nquery {\n  getUser(id: 1) {\n        email\n        name\n    }\n}\n",
+						"query": "\nquery {\n  getUser {\n        email\n        name\n        pass\n        id\n    }\n}\n",
 						"variables": ""
 					}
 				},
