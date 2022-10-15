@@ -15,7 +15,7 @@ const typeDefs = gql`
     token: String
   }
 
-  type createMenu {
+  type Menu {
     id: String
     userId: String
     urlLogo: String
@@ -33,13 +33,13 @@ const typeDefs = gql`
 
   type Query {
     getUser(id: ID): User
-    getMenu: User
+    getMenu(id: ID): Menu
   }
 
   type Mutation {
     getLogin(email: String, pass: String): login
     createUser(email: String, pass: String, name: String): createUser
-    createMenu(id: String, userId: String, urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): createMenu
+    createMenu(id: String, userId: String, urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
   }
 `;
 

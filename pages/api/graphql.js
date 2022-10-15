@@ -13,8 +13,8 @@ const resolvers = {
         getUser: (parent, args, context, info) => {
             return getUser(parent, args, context, info);
         },
-        getMenu: () => {
-            return getMenu;
+        getMenu: (parent, args, context, info) => {
+            return getMenu(parent, args, context, info);
         },
     },
     Mutation: {
