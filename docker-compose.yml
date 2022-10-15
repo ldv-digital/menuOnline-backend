@@ -24,7 +24,7 @@ services:
       - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     ports:
-      - "3306:3306"
+      - "33060:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     security_opt:
