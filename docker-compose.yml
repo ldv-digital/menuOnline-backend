@@ -11,7 +11,7 @@ services:
       - /opt/app/node_modules
       - /opt/app/.next
     ports:
-      - '80:3000'
+      - '8080:3000'
     depends_on:
       - mysql
   mysql:
