@@ -14,7 +14,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "b56af00d30505c7144b5f500e5ddf671",
+							"value": "e86c74bfc0025b6a5ae0a11f33a42155",
 							"type": "string"
 						}
 					]
@@ -24,17 +24,15 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "\nquery {\n  getMenu(id: 3) {\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
+						"query": "\nquery {\n  getMenu(id: 1) {\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
 						"variables": ""
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/graphql",
-					"protocol": "http",
+					"raw": "{{url}}/api/graphql",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"graphql"
@@ -56,12 +54,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/graphql",
-					"protocol": "http",
+					"raw": "{{url}}/api/graphql",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"graphql"
@@ -83,12 +79,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/graphql",
-					"protocol": "http",
+					"raw": "{{url}}/api/graphql",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"graphql"
@@ -110,12 +104,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/graphql",
-					"protocol": "http",
+					"raw": "{{url}}/api/graphql",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"graphql"
@@ -132,7 +124,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "5ecbb94baa287ae22df3372377263e7d",
+							"value": "e86c74bfc0025b6a5ae0a11f33a42155",
 							"type": "string"
 						}
 					]
@@ -147,12 +139,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/graphql",
-					"protocol": "http",
+					"raw": "{{url}}/api/graphql",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"graphql"
@@ -160,6 +150,33 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080",
+			"type": "string"
 		}
 	]
 }
