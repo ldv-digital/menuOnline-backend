@@ -10,14 +10,7 @@
 			"name": "get menu",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "e86c74bfc0025b6a5ae0a11f33a42155",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
@@ -69,6 +62,16 @@
 		{
 			"name": "create User",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -94,12 +97,22 @@
 		{
 			"name": "create Menu",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation createMenu {\n   createMenu(userId: \"1\", urlLogo: \"eqweqweqwe\", urlMenu: \"dddeewqwe\", nameStore: \"qweqweqeqwewqeqw\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"query": "mutation createMenu {\n   createMenu(urlLogo: \"xxxxxxx\", urlMenu: \"xxxxxx\", nameStore: \"xxxxxxxxxxx\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
 						"variables": ""
 					}
 				},
@@ -124,7 +137,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "e86c74bfc0025b6a5ae0a11f33a42155",
+							"value": "{{token}}",
 							"type": "string"
 						}
 					]
@@ -175,7 +188,12 @@
 	"variable": [
 		{
 			"key": "url",
-			"value": "http://localhost:8080",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "token",
 			"type": "string"
 		}
 	]
