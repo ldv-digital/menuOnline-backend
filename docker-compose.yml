@@ -33,8 +33,8 @@ services:
     image: minio/minio
     container_name: minio
     ports:
-      - "8000:9000"
-      - "8001:9001"
+      - "80:9000"
+      - "81:9001"
     volumes:
       - ./minio_storage:/data
     environment:
