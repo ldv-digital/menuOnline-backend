@@ -1,13 +1,16 @@
 import { PrismaClient } from '@prisma/client'
-import md5 from 'md5'
 
 const prisma = new PrismaClient();
 
 async function createMenu(parent, args, context, info) {
 
+    const userId = String(context?.idUserToken);
+    if (!userId) return [];
+    
     const menu = await prisma.Menu.create({
         data: {
-            ...args
+            ...args,
+            userId
         },
     })
 
