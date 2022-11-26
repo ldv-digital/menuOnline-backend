@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function createMenu(parent, args, context, info) {
 
-    const userId = String(context?.idUserToken);
+    const userId = parseInt(context?.idUserToken);
     if (!userId) return [];
     
     const menu = await prisma.Menu.create({

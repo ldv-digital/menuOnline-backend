@@ -19,7 +19,7 @@ model User {
 
 model Menu {
   id    Int     @id @default(autoincrement())
-  userId  String?
+  userId  Int?
   urlLogo  String?
   urlMenu  String?
   nameStore  String?

@@ -12,7 +12,7 @@ CREATE TABLE `User` (
 -- CreateTable
 CREATE TABLE `Menu` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `userId` VARCHAR(191) NULL,
+    `userId` INTEGER NULL,
     `urlLogo` VARCHAR(191) NULL,
     `urlMenu` VARCHAR(191) NULL,
     `nameStore` VARCHAR(191) NULL,
