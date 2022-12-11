@@ -12,7 +12,7 @@ CREATE TABLE `User` (
 -- CreateTable
 CREATE TABLE `Menu` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `userId` INTEGER NULL,
+    `userId` INTEGER NOT NULL,
     `urlLogo` VARCHAR(191) NULL,
     `urlMenu` VARCHAR(191) NULL,
     `nameStore` VARCHAR(191) NULL,
@@ -25,8 +25,8 @@ CREATE TABLE `Menu` (
 -- CreateTable
 CREATE TABLE `AccessToken` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `token` VARCHAR(191) NULL,
-    `idUser` INTEGER NULL,
+    `token` VARCHAR(191) NOT NULL,
+    `idUser` INTEGER NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)

@@ -19,7 +19,7 @@ model User {
 
 model Menu {
   id    Int     @id @default(autoincrement())
-  userId  Int?
+  userId  Int
   urlLogo  String?
   urlMenu  String?
   nameStore  String?
@@ -29,7 +29,7 @@ model Menu {
 
 model AccessToken {
   id    Int     @id @default(autoincrement())
-  token  String?
-  idUser  Int?
+  token  String
+  idUser  Int
   createdAt  DateTime   @default(now())
 }
