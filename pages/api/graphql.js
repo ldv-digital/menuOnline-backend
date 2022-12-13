@@ -6,6 +6,7 @@ import createUser from './resolvers/createUser'
 import createMenu from './resolvers/createMenu'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
+import NextCors from 'nextjs-cors';
 
 const resolvers = {
     Query: {
@@ -43,6 +44,13 @@ const apolloServer = new ApolloServer({
 const startServer = apolloServer.start();
 
 export default async function handler(req, res) {
+
+    await NextCors(req, res, {
+        methods: ['POST'],
+        origin: '*',
+        optionsSuccessStatus: 200,
+    });
+
     await startServer;
     await apolloServer.createHandler({
         path: "/api/graphql",
