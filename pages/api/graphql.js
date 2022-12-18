@@ -5,6 +5,7 @@ import getLogin from './resolvers/getLogin'
 import createUser from './resolvers/createUser'
 import updateUser from './resolvers/updateUser'
 import createMenu from './resolvers/createMenu'
+import deleteMenu from './resolvers/deleteMenu'
 import updateMenu from './resolvers/updateMenu'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
@@ -34,6 +35,9 @@ const resolvers = {
         },
         updateMenu: (parent, args, context, info) => {
             return updateMenu(parent, args, context, info);
+        },
+        deleteMenu: (parent, args, context, info) => {
+            return deleteMenu(parent, args, context, info);
         },
     },
 };

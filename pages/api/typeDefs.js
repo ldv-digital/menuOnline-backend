@@ -31,6 +31,11 @@ const typeDefs = gql`
     name: String
   }
 
+  type Return {
+    status: String
+    message: String
+  }
+
   type Query {
     getUser: User
     getMenu(id: ID): Menu
@@ -42,6 +47,7 @@ const typeDefs = gql`
     updateUser(email: String, pass: String, name: String): User
     createMenu(urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
     updateMenu(id: String, urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
+    deleteMenu(id: String): Return
   }
 `;
 
