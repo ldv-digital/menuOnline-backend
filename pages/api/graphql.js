@@ -5,6 +5,7 @@ import getLogin from './resolvers/getLogin'
 import createUser from './resolvers/createUser'
 import updateUser from './resolvers/updateUser'
 import createMenu from './resolvers/createMenu'
+import updateMenu from './resolvers/updateMenu'
 import getUser from './resolvers/getUser'
 import typeDefs from './typeDefs'
 import NextCors from 'nextjs-cors';
@@ -30,6 +31,9 @@ const resolvers = {
         },
         createMenu: (parent, args, context, info) => {
             return createMenu(parent, args, context, info);
+        },
+        updateMenu: (parent, args, context, info) => {
+            return updateMenu(parent, args, context, info);
         },
     },
 };

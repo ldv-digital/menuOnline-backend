@@ -41,6 +41,7 @@ const typeDefs = gql`
     createUser(email: String, pass: String, name: String): User
     updateUser(email: String, pass: String, name: String): User
     createMenu(urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
+    updateMenu(id: String, urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
   }
 `;
 
