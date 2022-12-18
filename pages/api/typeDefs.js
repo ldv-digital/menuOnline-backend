@@ -25,7 +25,7 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  type createUser {
+  type User {
     email: String
     pass: String
     name: String
@@ -38,7 +38,8 @@ const typeDefs = gql`
 
   type Mutation {
     getLogin(email: String, pass: String): login
-    createUser(email: String, pass: String, name: String): createUser
+    createUser(email: String, pass: String, name: String): User
+    updateUser(email: String, pass: String, name: String): User
     createMenu(urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
   }
 `;
