@@ -7,17 +7,14 @@
 	},
 	"item": [
 		{
-			"name": "get menu",
+			"name": "Login",
 			"request": {
-				"auth": {
-					"type": "noauth"
-				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "\nquery {\n  getMenu(id: 1) {\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
+						"query": "mutation LoginUser {\n   getLogin(email: \"jamacio@hotmail.com\", pass: \"teste@123456\") {\n    token\n    email\n    name\n  }\n}\n",
 						"variables": ""
 					}
 				},
@@ -35,14 +32,52 @@
 			"response": []
 		},
 		{
-			"name": "Login",
+			"name": "get menu",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation LoginUser {\n   getLogin(email: \"jamacio@hotmail.com\", pass: \"teste@123456\") {\n    token\n    email\n    name\n  }\n}\n",
+						"query": "\nquery {\n  getMenu(id: \"4\") {\n      id\n    userId\n    urlLogo\n    urlMenu\n    }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\nquery {\n  getUser {\n        email\n        name\n        pass\n        id\n    }\n}\n",
 						"variables": ""
 					}
 				},
@@ -95,7 +130,7 @@
 			"response": []
 		},
 		{
-			"name": "create Menu",
+			"name": "update User",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -112,7 +147,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation createMenu {\n   createMenu(urlLogo: \"xxxxxxx\", urlMenu: \"xxxxxx\", nameStore: \"xxxxxxxxxxx\") {\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"query": "mutation updateUser {\n   updateUser(email: \"jamacio@hotmail.com\", pass: \"teste@123456\", name: \" rocha\") {\n    email\n    pass\n    name\n  }\n}\n",
 						"variables": ""
 					}
 				},
@@ -130,7 +165,7 @@
 			"response": []
 		},
 		{
-			"name": "get User",
+			"name": "create Menu",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -147,7 +182,77 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "\nquery {\n  getUser {\n        email\n        name\n        pass\n        id\n    }\n}\n",
+						"query": "mutation createMenu {\n   createMenu(urlLogo: \"bbbbbbbbbbbbbbbbbbbb\", urlMenu: \"banner-estatico-assinatura-312x336_1_1.jpeg\", nameStore: \"{xxxxxxxxxxx}\") {\n    id\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Menu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation updateMenu {\n   updateMenu(id: \"3\", urlLogo: \"jsr jamacio\", urlMenu: \"banner-estatico-assinatura-312x336_1_1.jpeg\", nameStore: \"{xxxxxxxxxxx}\") {\n    id\n    userId\n    urlLogo\n    urlMenu\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/graphql",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Menu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation deleteMenu {\n   deleteMenu(id: \"3\") {\n    status\n    message\n  }\n}\n",
 						"variables": ""
 					}
 				},
@@ -188,7 +293,7 @@
 	"variable": [
 		{
 			"key": "url",
-			"value": "http://localhost",
+			"value": "http://localhost:8080 | http://191.101.234.188:8080",
 			"type": "string"
 		},
 		{
