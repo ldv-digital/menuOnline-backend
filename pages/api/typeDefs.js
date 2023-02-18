@@ -43,7 +43,7 @@ const typeDefs = gql`
 
   type Mutation {
     getLogin(email: String, pass: String): login
-    createUser(email: String, pass: String, name: String): User
+    createUser(email: String, pass: String, name: String): login
     updateUser(email: String, pass: String, name: String): User
     createMenu(urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu
     updateMenu(id: String, urlLogo: String, urlMenu: String, nameStore: String, isActive: String, createdAt: String): Menu

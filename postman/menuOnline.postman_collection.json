@@ -112,7 +112,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation createUser {\n   createUser(email: \"jamacio@hotmail.com\", pass: \"teste@123456\", name: \"jamacio\") {\n    email\n    pass\n    name\n  }\n}\n",
+						"query": "mutation createUser {\n   createUser(email: \"jamacio@hotmail.com\", pass: \"teste\", name: \"jamacio\") {\n    email\n    token\n    name\n  }\n}\n",
 						"variables": ""
 					}
 				},

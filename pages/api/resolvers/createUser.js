@@ -5,16 +5,42 @@ const prisma = new PrismaClient();
 
 async function createUser(parent, args, context, info) {
 
-    const pass = md5(args.pass);
+    let response = null;
 
-    const user = await prisma.user.create({
-        data: {
-            ...args,
-            pass
-        },
-    })
+    try {
 
-    return user;
+        if (!args.pass) {
+            return null;
+        }
+
+        const pass = md5(args.pass);
+        const user = await prisma.user.create({
+            data: {
+                ...args,
+                pass
+            },
+        });
+
+        if (!user?.name) {
+            return null;
+        }
+
+        const dateNow = Date.now();
+        const token = md5(dateNow);
+        const idUser = user.id;
+        await prisma.AccessToken.create({ data: { token, idUser } });
+
+        response = {
+            ...user,
+            token
+        }
+
+    } catch (err) {
+        console.log(err);
+        return response;
+    }
+
+    return response;
 }
 
 export default createUser;
