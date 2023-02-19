@@ -1,14 +1,15 @@
 import { ApolloServer } from "apollo-server-micro";
-import getIdToken from './getIdToken'
-import getMenu from './resolvers/getMenu'
-import getLogin from './resolvers/getLogin'
-import createUser from './resolvers/createUser'
-import updateUser from './resolvers/updateUser'
-import createMenu from './resolvers/createMenu'
-import deleteMenu from './resolvers/deleteMenu'
-import updateMenu from './resolvers/updateMenu'
-import getUser from './resolvers/getUser'
-import typeDefs from './typeDefs'
+import getIdToken from './getIdToken';
+import getMenu from './resolvers/getMenu';
+import getLogin from './resolvers/getLogin';
+import createUser from './resolvers/createUser';
+import updateUser from './resolvers/updateUser';
+import createMenu from './resolvers/createMenu';
+import deleteMenu from './resolvers/deleteMenu';
+import updateMenu from './resolvers/updateMenu';
+import listMenu from './resolvers/listMenu';
+import getUser from './resolvers/getUser';
+import typeDefs from './typeDefs';
 import NextCors from 'nextjs-cors';
 
 const resolvers = {
@@ -18,6 +19,9 @@ const resolvers = {
         },
         getMenu: (parent, args, context, info) => {
             return getMenu(parent, args, context, info);
+        },
+        listMenu: (parent, args, context, info) => {
+            return listMenu(parent, args, context, info);
         },
     },
     Mutation: {

@@ -38,6 +38,7 @@ const typeDefs = gql`
 
   type Query {
     getUser: User
+    listMenu: [Menu]
     getMenu(id: ID): Menu
   }
 
