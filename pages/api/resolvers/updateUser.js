@@ -8,7 +8,7 @@ async function updateUser(parent, args, context, info) {
     const userId = parseInt(context?.idUserToken);
     if (!userId) return [];
 
-    const passEncrypted = (args?.pass && uemail != undefined ? md5(args.pass) : false);
+    const passEncrypted = (args?.pass && args?.pass != undefined ? md5(args.pass) : false);
     let data = { ...args };
 
     if (passEncrypted) {
