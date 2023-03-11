@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy Production
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Checkout
+        uses: actions/checkout@v1
+      - name: Deploy Production server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "./"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "./menuOnline-backend/"
+          SCRIPT_AFTER: |         
+            cd menuOnline-backend
+            make build
+            make prisma-migrate
