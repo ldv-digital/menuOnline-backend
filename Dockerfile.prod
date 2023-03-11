@@ -15,6 +15,6 @@ COPY prisma ./prisma/
 RUN yarn install --production
 RUN yarn add --dev eslint
 COPY . /opt/app
-
+RUN yarn  prisma migrate
 RUN yarn build
 CMD [ "yarn", "start" ]
