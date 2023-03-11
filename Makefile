@@ -12,13 +12,15 @@ down:
 
 build:
 	docker-compose -f docker-compose.yml down && docker-compose -f docker-compose.yml up -d --build --remove-orphans
-	docker exec -it nextjs sh -c 'yarn  prisma migrate dev --name init'
 
 docker-inspect:
 	docker network inspect bridge
 
 bash:
 	docker exec -it nextjs sh
+
+prisma-migrate:
+	docker exec -it nextjs sh -c 'yarn  prisma migrate dev --name init'
 
 prisma-migrate-delete-db:
 	docker exec -it nextjs sh -c 'rm -rf prisma/migrations; yarn  prisma migrate dev --name init'
