@@ -19,9 +19,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "./menuOnline-backend/"
           SCRIPT_AFTER: |         
-            cd menuOnline-backend
-            make build
+            cd menuOnline-backend;
+            make build;
             echo "sleep 240 seconds"
-            sleep 240
-            docker ps
-            make prisma-migrate-deploy
+            sleep 240; make prisma-migrate-deploy &
