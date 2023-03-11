@@ -21,4 +21,5 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-backend
             make build
+            echo "teste.... jsr"
             docker exec -it nextjs sh -c 'yarn  prisma migrate dev --name init'
