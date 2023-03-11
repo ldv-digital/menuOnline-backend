@@ -22,4 +22,4 @@ jobs:
             cd menuOnline-backend;
             make build;
             echo "sleep 240 seconds"
-            sleep 240; make prisma-migrate-deploy &
+            sleep 240 && make prisma-migrate-deploy;
