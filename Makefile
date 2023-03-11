@@ -20,7 +20,7 @@ bash:
 	docker exec -it nextjs sh
 
 prisma-migrate:
-	docker exec -it nextjs sh -c 'yarn  prisma migrate dev --name init'
+	docker exec -it nextjs sh 'yarn  prisma migrate dev --name init'
 
 prisma-migrate-delete-db:
 	docker exec -it nextjs sh -c 'rm -rf prisma/migrations; yarn  prisma migrate dev --name init'
