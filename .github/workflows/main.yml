@@ -23,4 +23,5 @@ jobs:
             make build
             echo "sleep 240 seconds"
             sleep 240
+            docker ps
             make prisma-migrate-deploy
