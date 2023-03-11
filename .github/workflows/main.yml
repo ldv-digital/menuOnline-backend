@@ -21,6 +21,6 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-backend
             make build
-            echo "sleep 60 seconds"
-            sleep 60
-            make prisma-migrate
+            echo "sleep 240 seconds"
+            sleep 240
+            make prisma-migrate-deploy

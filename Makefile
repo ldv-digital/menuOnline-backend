@@ -19,10 +19,10 @@ docker-inspect:
 bash:
 	docker exec -it nextjs sh
 
-prisma-migrate:
-	docker exec -it nextjs sh 'yarn  prisma migrate dev --name init'
+prisma-migrate-deploy:
+	docker exec -it nextjs sh 'yarn  prisma migrate deploy'
 
-prisma-migrate-delete-db:
+prisma-migrate-dev:
 	docker exec -it nextjs sh -c 'rm -rf prisma/migrations; yarn  prisma migrate dev --name init'
 	 
 # Docker commands
