@@ -14,11 +14,7 @@ COPY package.json *.lock ./
 COPY prisma ./prisma/ 
 RUN yarn install --production
 RUN yarn add --dev eslint
-
 COPY . /opt/app
-RUN yarn  prisma migrate dev --name init
+
 RUN yarn build
-
-RUN yarn  prisma migrate dev --name init
-
 CMD [ "yarn", "start" ]
