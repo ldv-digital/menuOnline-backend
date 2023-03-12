@@ -23,7 +23,7 @@ jobs:
             ls
             echo "jamacio-teste"
             docker ps
-            make prisma-migrate-deploy;    
+            docker exec -it nextjs sh 'yarn  prisma migrate dev --name init';   
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
