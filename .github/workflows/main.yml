@@ -20,6 +20,5 @@ jobs:
           TARGET: "./menuOnline-backend/"
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
+            make prisma-migrate-deploy
             make build;
-            echo "sleep 240 seconds"
-            sleep 240 && make prisma-migrate-deploy;
