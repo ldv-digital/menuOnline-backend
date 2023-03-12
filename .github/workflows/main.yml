@@ -21,3 +21,4 @@ jobs:
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
+            make prisma-migrate-deploy
