@@ -20,7 +20,7 @@ jobs:
           TARGET: "./menuOnline-backend/"
           SCRIPT_BEFORE: |
             cd menuOnline-backend;
-            ll       
+            ls    
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
