@@ -13,8 +13,9 @@ services:
     ports:
       - '8080:3000'
     depends_on:
-      mysql:
-        condition: service_healthy
+      - mysql
+    environment:
+      WAIT_HOSTS: mysql:3306      
   mysql:
     image: mysql:8.0
     container_name: mysql
