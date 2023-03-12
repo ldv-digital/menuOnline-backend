@@ -20,7 +20,9 @@ jobs:
           TARGET: "./menuOnline-backend/"
           SCRIPT_BEFORE: |
             cd menuOnline-backend;
-            ls    
+            ls
+            echo "jamacio-teste"
+            docker ps    
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
