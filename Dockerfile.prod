@@ -12,8 +12,8 @@ COPY yarn.lock /opt/app
 COPY .eslintrc.json /opt/app/.eslintrc.json
 COPY package.json *.lock ./
 COPY prisma ./prisma/ 
+RUN npx prisma migrate deploy
 RUN yarn install --production
-RUN yarn prisma migrate deploy
 RUN yarn add --dev eslint
 COPY . /opt/app
 
