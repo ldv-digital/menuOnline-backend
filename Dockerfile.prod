@@ -18,4 +18,4 @@ COPY . /opt/app
 
 RUN yarn build
 RUN yarn prisma migrate deploy
-CMD [ "yarn", "start" ]
+RUN yarn start
