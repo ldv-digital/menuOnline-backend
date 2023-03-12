@@ -13,9 +13,8 @@ services:
     ports:
       - '8080:3000'
     depends_on:
-      - mysql
-    links: 
-      - mysql      
+      mysql:
+        condition: service_healthy
   mysql:
     image: mysql:8.0
     container_name: mysql
