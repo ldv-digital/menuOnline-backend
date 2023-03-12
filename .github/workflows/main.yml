@@ -22,7 +22,8 @@ jobs:
             cd menuOnline-backend;
             ls
             echo "jamacio-teste"
-            docker ps    
+            docker ps
+            make prisma-migrate-deploy;    
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
