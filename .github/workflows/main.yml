@@ -20,8 +20,7 @@ jobs:
           TARGET: "./menuOnline-backend/"
           SCRIPT_BEFORE: |
             cd menuOnline-backend;
-            ll
-            make prisma-migrate-deploy;         
+            ll       
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
             make build;
