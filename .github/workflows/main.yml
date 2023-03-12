@@ -19,7 +19,8 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "./menuOnline-backend/"
           SCRIPT_BEFORE: |
-            cd menuOnline-backend;            
+            cd menuOnline-backend;
+            ll
             make prisma-migrate-deploy;         
           SCRIPT_AFTER: |         
             cd menuOnline-backend;
