@@ -1,5 +1,21 @@
 version: '3'
 services:
+  nextjs:
+    container_name: nextjs
+    build:
+      context: .
+      dockerfile: Dockerfile.${APPLICATION_TYPE}
+      # network: host
+    volumes:
+      - .:/opt/app
+      - /opt/app/node_modules
+      - /opt/app/.next
+    ports:
+      - '8080:3000'
+    depends_on:
+      - mysql
+    links: 
+      - mysql      
   mysql:
     image: mysql:8.0
     container_name: mysql
@@ -27,20 +43,7 @@ services:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
     command: server --console-address ":9001" /data
-  nextjs:
-    container_name: nextjs
-    build:
-      context: .
-      dockerfile: Dockerfile.${APPLICATION_TYPE}
-      # network: host
-    volumes:
-      - .:/opt/app
-      - /opt/app/node_modules
-      - /opt/app/.next
-    ports:
-      - '8080:3000'
-    depends_on:
-      - mysql
+
 volumes:
   minio_storage: {}
   mysql-data:
