@@ -26,7 +26,7 @@ export default function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            MenuOnline teste 2
+            MenuOnline teste 1
           </a>
           .
         </div>
