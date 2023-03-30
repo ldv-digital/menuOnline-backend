@@ -19,5 +19,8 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "./menuOnline-backend/"
           SCRIPT_AFTER: |         
-            cd menuOnline-backend;
+            #!/bin/bash    
+            cd menuOnline-backend
+            echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
+            make stop;
             make build;
