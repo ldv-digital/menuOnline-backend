@@ -22,5 +22,14 @@ jobs:
             #!/bin/bash    
             cd menuOnline-backend
             echo "${{ vars.VAR_BUILD }}" | sed 's/ \+/\n/g' > .env;
-            make stop;
+            
+            docker rm -vf nextjs
+            docker rmi -f $(docker images -q | grep -v nextjs)
+      
+            docker rm -vf mysql
+            docker rmi -f $(docker images -q | grep -v mysql)
+      
+            docker rm -vf minio
+            docker rmi -f $(docker images -q | grep -v minio)
+
             make build;
